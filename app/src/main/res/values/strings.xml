@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CampusConnect</string>
+    <string name="welcome_back">Welcome back 👋</string>
+    <string name="tagline">Your University Club &amp; Community Hub</string>
+    
+    <!-- Navigation Tabs -->
+    <string name="nav_home">Home</string>
+    <string name="nav_explore">Explore</string>
+    <string name="nav_events">Events</string>
+    <string name="nav_notifications">Notifications</string>
+    <string name="nav_profile">Profile</string>
+    
+    <!-- Actions -->
+    <string name="login">Login</string>
+    <string name="signup">Sign Up</string>
+    <string name="logout">Logout</string>
+    <string name="create_account">Create Account</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="follow">Follow</string>
+    <string name="following">Following</string>
+    <string name="unfollow">Unfollow</string>
+    <string name="register">Register</string>
+    <string name="registered">REGISTERED ✓</string>
+    <string name="event_full">EVENT FULL</string>
+    <string name="registration_closed">REGISTRATION CLOSED</string>
+    <string name="save">Save</string>
+    <string name="saved">Saved</string>
+    <string name="like">Like</string>
+    <string name="comment">Comment</string>
+    <string name="publish">Publish</string>
+    <string name="cancel">Cancel</string>
+    <string name="explore_clubs">Explore Clubs</string>
+    
+    <!-- Section Headers -->
+    <string name="categories">Categories</string>
+    <string name="upcoming_events">Upcoming Events</string>
+    <string name="your_feed">Your Feed</string>
+    <string name="my_clubs">My Clubs</string>
+    <string name="my_events">My Events</string>
+    <string name="saved_posts">Saved Posts</string>
+    <string name="settings">Settings</string>
+    <string name="admin_dashboard">Admin Dashboard</string>
+    <string name="super_admin_dashboard">Super Admin Dashboard</string>
+    
+    <!-- Empty States -->
+    <string name="empty_feed_title">Your feed is empty</string>
+    <string name="empty_feed_desc">Follow clubs to personalize your feed.</string>
+    <string name="empty_events_title">No upcoming events</string>
+    <string name="empty_events_desc">Check back later for exciting campus events.</string>
+    <string name="empty_notifications">No notifications yet.</string>
+</resources>

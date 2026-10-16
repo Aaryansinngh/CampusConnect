@@ -1,0 +1,73 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    
+    function isUser(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function getUserData() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
+    }
+
+    function isClubAdmin() {
+      return isSignedIn() && (getUserData().role == 'CLUB_ADMIN' || getUserData().role == 'SUPER_ADMIN');
+    }
+
+    function isSuperAdmin() {
+      return isSignedIn() && getUserData().role == 'SUPER_ADMIN';
+    }
+
+    // Users Collection
+    match /users/{userId} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn();
+      allow update: if isUser(userId) || isSuperAdmin();
+      allow delete: if isSuperAdmin();
+    }
+
+    // Clubs Collection
+    match /clubs/{clubId} {
+      allow read: if true;
+      allow create, update, delete: if isClubAdmin();
+    }
+
+    // Posts Collection
+    match /posts/{postId} {
+      allow read: if true;
+      allow create, update, delete: if isClubAdmin();
+    }
+
+    // Comments Collection
+    match /comments/{commentId} {
+      allow read: if true;
+      allow create: if isSignedIn();
+      allow delete: if isSignedIn() && (resource.data.userId == request.auth.uid || isClubAdmin());
+    }
+
+    // Events Collection
+    match /events/{eventId} {
+      allow read: if true;
+      allow create, update, delete: if isClubAdmin();
+    }
+
+    // Registrations Collection
+    match /registrations/{registrationId} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid;
+      allow delete: if isSignedIn() && (resource.data.userId == request.auth.uid || isClubAdmin());
+    }
+
+    // Notifications Collection
+    match /notifications/{notificationId} {
+      allow read: if isSignedIn() && resource.data.userId == request.auth.uid;
+      allow create: if isSignedIn();
+      allow update: if isSignedIn() && resource.data.userId == request.auth.uid;
+    }
+  }
+}

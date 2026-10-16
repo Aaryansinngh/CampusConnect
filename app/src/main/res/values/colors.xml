@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand Primary Palette -->
+    <color name="primary">#4F46E5</color> <!-- Deep Indigo -->
+    <color name="primary_variant">#3730A3</color>
+    <color name="on_primary">#FFFFFF</color>
+    
+    <!-- Brand Secondary Palette -->
+    <color name="secondary">#7C3AED</color> <!-- Vibrant Violet -->
+    <color name="secondary_variant">#5B21B6</color>
+    <color name="on_secondary">#FFFFFF</color>
+
+    <!-- Accent Palette -->
+    <color name="accent_teal">#0D9488</color>
+    <color name="accent_amber">#D97706</color>
+    <color name="accent_rose">#E11D48</color>
+    <color name="accent_emerald">#059669</color>
+
+    <!-- Neutral Background & Surfaces -->
+    <color name="background_light">#F8FAFC</color>
+    <color name="surface_light">#FFFFFF</color>
+    <color name="surface_card">#FFFFFF</color>
+    <color name="surface_variant_light">#F1F5F9</color>
+    
+    <!-- Typography Colors -->
+    <color name="text_primary">#0F172A</color>
+    <color name="text_secondary">#475569</color>
+    <color name="text_muted">#94A3B8</color>
+    
+    <!-- State & Borders -->
+    <color name="border_light">#E2E8F0</color>
+    <color name="divider_light">#CBD5E1</color>
+    <color name="chip_bg">#EEF2FF</color>
+    <color name="chip_selected_bg">#4F46E5</color>
+    
+    <color name="announcement_bg">#FEF2F2</color>
+    <color name="announcement_border">#FECACA</color>
+    <color name="announcement_text">#991B1B</color>
+
+    <!-- Status Badges -->
+    <color name="status_registered">#DCFCE7</color>
+    <color name="status_registered_text">#166534</color>
+    <color name="status_full">#FEE2E2</color>
+    <color name="status_full_text">#991B1B</color>
+</resources>
