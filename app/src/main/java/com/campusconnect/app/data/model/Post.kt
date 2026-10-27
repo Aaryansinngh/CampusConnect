@@ -2,6 +2,8 @@ package com.campusconnect.app.data.model
 
 data class Post(
     val postId: String = "",
+    val authorId: String = "",
+    val authorName: String = "",
     val clubId: String = "",
     val clubName: String = "",
     val clubLogoUrl: String = "",

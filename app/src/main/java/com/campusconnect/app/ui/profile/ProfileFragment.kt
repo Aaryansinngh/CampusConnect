@@ -39,12 +39,8 @@ class ProfileFragment : Fragment() {
                     Glide.with(requireContext()).load(user.profileImageUrl).into(binding.imgProfileAvatar)
                 }
 
-                if (user.role == User.ROLE_CLUB_ADMIN || user.role == User.ROLE_SUPER_ADMIN) {
-                    binding.btnMenuAdmin.visibility = View.VISIBLE
-                } else {
-                    binding.btnMenuAdmin.visibility = View.GONE
-                }
-
+                // TEMPORARY: Enable Admin Dashboard for Firebase testing.
+                binding.btnMenuAdmin.visibility = View.VISIBLE
                 if (user.role == User.ROLE_SUPER_ADMIN) {
                     binding.btnMenuSuperAdmin.visibility = View.VISIBLE
                 } else {

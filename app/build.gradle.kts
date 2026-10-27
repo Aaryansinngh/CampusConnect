@@ -1,6 +1,7 @@
-plugins {
+﻿plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -74,13 +75,3 @@ dependencies {
     annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
 }
 
-// Conditionally apply Google Services plugin only if google-services.json is present
-val googleServicesFile = file("google-services.json")
-val hasGoogleServices = googleServicesFile.exists() ||
-    fileTree(projectDir).matching { include("**/google-services.json") }.isEmpty.not()
-
-if (hasGoogleServices) {
-    apply(plugin = "com.google.gms.google-services")
-} else {
-    logger.warn("google-services.json not found in ${projectDir.path}. App will run in offline/demo mode with mock data engine.")
-}

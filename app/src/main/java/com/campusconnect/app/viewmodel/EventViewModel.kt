@@ -41,17 +41,64 @@ class EventViewModel(private val repository: CampusRepository) : ViewModel() {
         }
     }
 
+
+
+
     fun registerForEvent(eventId: String) {
+        android.util.Log.e(
+            "CampusConnect",
+            "REGISTER BUTTON TRIGGERED: eventId=$eventId"
+        )
+
         _registrationResult.value = Resource.Loading()
+
         viewModelScope.launch {
-            val result = repository.registerForEvent(eventId)
-            _registrationResult.value = result
-            if (result is Resource.Success) {
-                loadEventDetail(eventId)
-                loadMyRegistrations()
+            try {
+                android.util.Log.e(
+                    "CampusConnect",
+                    "CALLING REGISTRATION REPOSITORY"
+                )
+
+                val result = repository.registerForEvent(eventId)
+
+                android.util.Log.e(
+                    "CampusConnect",
+                    "REPOSITORY RESULT: ${result::class.simpleName}"
+                )
+
+                if (result is Resource.Error) {
+                    android.util.Log.e(
+                        "CampusConnect",
+                        "REGISTRATION ERROR: ${result.message}"
+                    )
+                }
+
+                _registrationResult.value = result
+
+                if (result is Resource.Success) {
+                    android.util.Log.e(
+                        "CampusConnect",
+                        "REGISTRATION SUCCESSFUL"
+                    )
+
+                    loadEventDetail(eventId)
+                    loadMyRegistrations()
+                }
+            } catch (e: Exception) {
+                android.util.Log.e(
+                    "CampusConnect",
+                    "VIEWMODEL REGISTRATION EXCEPTION",
+                    e
+                )
+
+                _registrationResult.value = Resource.Error(
+                    e.message ?: "Registration failed."
+                )
             }
         }
     }
+
+
 
     fun clearRegistrationResult() {
         _registrationResult.value = null
